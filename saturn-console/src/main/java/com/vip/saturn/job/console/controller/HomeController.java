@@ -42,6 +42,7 @@ import com.vip.saturn.job.console.domain.RegistryCenterClient;
 import com.vip.saturn.job.console.domain.RegistryCenterConfiguration;
 import com.vip.saturn.job.console.service.ExecutorService;
 import com.vip.saturn.job.console.service.JobDimensionService;
+import com.vip.saturn.job.console.utils.SessionAttributeKeys;
 
 @Controller
 @RequestMapping("/")
@@ -136,7 +137,7 @@ public class HomeController  extends AbstractController {
         	renderShellExecutorInfos(model);
             return "overview";
         }
-    	RegistryCenterConfiguration config = (RegistryCenterConfiguration) request.getSession().getAttribute(AbstractController.ACTIVATED_CONFIG_SESSION_KEY);
+    	RegistryCenterConfiguration config = (RegistryCenterConfiguration) request.getSession().getAttribute(SessionAttributeKeys.ACTIVATED_CONFIG_SESSION_KEY);
 		if(config == null) {
     		return "redirect:registry_center_page";
 		} else {
